@@ -20,9 +20,6 @@ public class Produto {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Produto() {
-	}
-
 	public int getId() {
 		return id;
 	}
