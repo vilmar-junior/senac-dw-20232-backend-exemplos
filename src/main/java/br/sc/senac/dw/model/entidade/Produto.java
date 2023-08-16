@@ -2,74 +2,46 @@ package br.sc.senac.dw.model.entidade;
 
 import java.time.LocalDate;
 
-public class Produto {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-	private int id;
+
+//Anotação do lombok para gerar getters, setters e construtor vazio (não descobri ainda porque não gerou o construtor com todos os argumentos)
+@Getter
+@Setter
+
+//Anotação do JPA para determinar que esta classe é uma entidade (objeto será gerenciado pelo container)
+@Entity
+
+//Anotação do JPA para associar a entidade a uma tabela do banco
+//Nome da tabela no banco, caso nada seja informado é considerado o nome da classe da entidade
+@Table(name = "produtos") 
+@NoArgsConstructor
+public class Produto {
+	
+	@Id
+	private Integer id;
 	private String nome;
 	private String fabricante;
-	private double valor;
-	private double peso;
+	private Double valor;
+	private Double peso;
 	private LocalDate dataCadastro;
-
-	public Produto(String nome, String fabricante, double valor, double peso, LocalDate dataCadastro) {
+	
+	public Produto(Integer id, String nome, String fabricante, Double valor, Double peso, LocalDate dataCadastro) {
 		super();
-		this.nome = nome;
-		this.fabricante = fabricante;
-		this.valor = valor;
-		this.peso = peso;
-		this.dataCadastro = dataCadastro;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getFabricante() {
-		return fabricante;
-	}
-
-	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
 		this.valor = valor;
-	}
-
-	public double getPeso() {
-		return peso;
-	}
-
-	public void setPeso(double peso) {
 		this.peso = peso;
-	}
-
-	@Override
-	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", fabricante=" + fabricante + "]";
-	}
-
-	public LocalDate getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+	
+	public Produto() {
+		
 	}
 }
