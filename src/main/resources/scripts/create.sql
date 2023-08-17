@@ -1,3 +1,6 @@
+CREATE SCHEMA EXEMPLOS;
+USE EXEMPLOS;
+
 CREATE TABLE exemplos.produtos (
 	id int auto_increment NOT NULL,
 	nome varchar(400) NOT NULL,

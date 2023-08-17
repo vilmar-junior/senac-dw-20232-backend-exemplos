@@ -5,10 +5,6 @@ import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 //Anotação do lombok para gerar getters, setters e construtor vazio (não descobri ainda porque não gerou o construtor com todos os argumentos)
 //TODO ver esse artigo ("BUGFIX"): 
@@ -16,12 +12,10 @@ import lombok.Setter;
 //@Data
 
 //Anotação do JPA para determinar que esta classe é uma entidade (objeto será gerenciado pelo container)
-@Entity
-
 //Anotação do JPA para associar a entidade a uma tabela do banco
 //Nome da tabela no banco, caso nada seja informado é considerado o nome da classe da entidade
+@Entity
 @Table(name = "produtos") 
-@NoArgsConstructor
 public class Produto {
 	
 	@Id
