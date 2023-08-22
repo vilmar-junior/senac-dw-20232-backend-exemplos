@@ -3,6 +3,8 @@ package br.sc.senac.dw.model.entidade;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -18,7 +20,10 @@ import jakarta.persistence.Table;
 @Table(name = "produtos") 
 public class Produto {
 	
+	//Exemplo de como usar SEQUENCES
+	//https://www.devmedia.com.br/jpa-como-usar-a-anotacao-generatedvalue/38592
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String fabricante;

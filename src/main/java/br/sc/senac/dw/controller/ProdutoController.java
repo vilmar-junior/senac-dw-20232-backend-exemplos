@@ -16,12 +16,15 @@ import br.sc.senac.dw.exception.CampoInvalidoException;
 import br.sc.senac.dw.model.entidade.Produto;
 import br.sc.senac.dw.service.ProdutoService;
 
+/**
+ * Classe de controller REST para o CRUD de produtos
+ * FONTE: https://spring.io/guides/tutorials/rest/
+ * 
+ * @author Vilmar César Pereira Júnior
+ */
 @RestController
 @RequestMapping(path = "/api/produtos") // shorthand for @Controller and @ResponseBody rolled together
 public class ProdutoController {
-	
-	//Anteriormente fazíamos:
-	//private ProdutoBO bo = new ProdutoBO();
 	
 	@Autowired //injeção de dependência (tomcat vai instanciar o objeto produtoService sob demanda)
 	private ProdutoService produtoService;
@@ -32,7 +35,7 @@ public class ProdutoController {
 	 * 
 	 * @return a lista de todas os produtos
 	 */
-	@GetMapping(path = "/todos")
+	@GetMapping
 	public List<Produto> listarTodos() {
 		return produtoService.listarTodos();
 	}
@@ -42,7 +45,7 @@ public class ProdutoController {
 	 * Parâmetro id foi enviado via URL
 	 * @return um produto específico, dado o seu id
 	 */
-	@GetMapping("/detalhe/{id}")
+	@GetMapping("/{id}")
 	public Produto pesquisarPorId(@PathVariable Integer id){
 		return produtoService.consultarPorId(id.longValue());
 	}
@@ -56,7 +59,8 @@ public class ProdutoController {
 	 * @throws CampoInvalidoException 
 	 */
 	@PostMapping
-	public Produto salvar(@RequestBody Produto novoProduto) throws CampoInvalidoException {
+	public Produto salvar(@RequestBody Produto novoProduto) 
+			throws CampoInvalidoException {
 		return produtoService.inserir(novoProduto);
 	}
 	
@@ -66,11 +70,12 @@ public class ProdutoController {
 	 * Parâmetros são enviados no corpo da requisição HTTP, 
 	 * para isso usamos a anotação @RequestBody
 	 * 
-	 * @return um booleano indicando se a vacina em questão foi atualizada
+	 * @return um booleano indicando se o produto em questão foi atualizado
 	 * @throws CampoInvalidoException 
 	 */
 	@PutMapping()
-	public boolean atualizar(@RequestBody Produto produtoParaAtualizar) throws CampoInvalidoException {
+	public boolean atualizar(@RequestBody Produto produtoParaAtualizar) 
+			throws CampoInvalidoException {
 		return produtoService.atualizar(produtoParaAtualizar) != null;
 	}
 	
@@ -82,4 +87,5 @@ public class ProdutoController {
 	public boolean excluir(@PathVariable Integer id) {
 		return produtoService.excluir(id);
 	}
+
 }

@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "bffaf5ce-1335-42b2-af59-d22ff9750a25",
+		"name": "Senac - DW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET produtos (listar todos)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET produto por id (listar por id)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST produto (inserir)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"Paçoca\",\r\n        \"fabricante\": \"Paçoquita\",\r\n        \"valor\": 22.80,\r\n        \"peso\": 1.7,\r\n        \"dataCadastro\": \"2023-08-21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT produto (atualizar)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"paisOrigem\": \"Portugal\",\r\n    \"estagioPesquisa\": 3,\r\n    \"dataInicioPesquisa\": \"2022-10-10\",\r\n    \"responsavel\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Edson Arantes do Nascimento\",\r\n        \"cpf\": \"00011122210\",\r\n        \"matricula\": 10,\r\n        \"dataNascimento\": \"1940-03-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE produto por id(excluir)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"paisOrigem\": \"Portugal\",\r\n    \"estagioPesquisa\": 3,\r\n    \"dataInicioPesquisa\": \"2022-10-10\",\r\n    \"responsavel\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Edson Arantes do Nascimento\",\r\n        \"cpf\": \"00011122210\",\r\n        \"matricula\": 10,\r\n        \"dataNascimento\": \"1940-03-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vacina/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -13,8 +13,6 @@ import br.sc.senac.dw.model.repository.ProdutoRepository;
 @Service
 public class ProdutoService {
 
-	//Anteriormente fazíamos:
-	//private ProdutoDAO dao = new ProdutoDAO();
 	@Autowired
     private ProdutoRepository produtoRepository;
 
