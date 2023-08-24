@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "GET produtos (listar todos)",
+			"name": "[Produto] Listar todos",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -25,7 +25,7 @@
 			"response": []
 		},
 		{
-			"name": "GET produto por id (listar por id)",
+			"name": "[Produto] Consultar por Id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -44,7 +44,7 @@
 			"response": []
 		},
 		{
-			"name": "POST produto (inserir)",
+			"name": "[Produto] Inserir",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -73,7 +73,37 @@
 			"response": []
 		},
 		{
-			"name": "PUT produto (atualizar)",
+			"name": "[Produto] Listar com seletor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Café\",\r\n    \"fabricante\": null,\r\n    \"valorMinimo\": null,\r\n    \"valorMaximo\": null,\r\n    \"pesoMinimo\": null,\r\n    \"pesoMaximo\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/produtos/filtro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"produtos",
+						"filtro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Produto] Atualizar",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -101,7 +131,7 @@
 			"response": []
 		},
 		{
-			"name": "DELETE produto por id(excluir)",
+			"name": "[Produto] Excluir por Id",
 			"request": {
 				"method": "DELETE",
 				"header": [],
