@@ -1,5 +1,7 @@
 package br.sc.senac.dw.model.seletor;
 
+import java.time.LocalDate;
+
 public class ProdutoSeletor extends BaseSeletor {
 
     private String nome;
@@ -8,6 +10,8 @@ public class ProdutoSeletor extends BaseSeletor {
     private Double valorMaximo;
     private Double pesoMinimo;
     private Double pesoMaximo;
+    private LocalDate dataCadastroInicial;
+    private LocalDate dataCadastroFinal;
 
 	public String getNome() {
 		return nome;
@@ -55,5 +59,21 @@ public class ProdutoSeletor extends BaseSeletor {
 
 	public void setPesoMaximo(Double pesoMaximo) {
 		this.pesoMaximo = pesoMaximo;
+	}
+
+	public LocalDate getDataCadastroInicial() {
+		return dataCadastroInicial;
+	}
+
+	public void setDataCadastroInicial(LocalDate dataCadastroInicial) {
+		this.dataCadastroInicial = dataCadastroInicial;
+	}
+
+	public LocalDate getDataCadastroFinal() {
+		return dataCadastroFinal;
+	}
+
+	public void setDataCadastroFinal(LocalDate dataCadastroFinal) {
+		this.dataCadastroFinal = dataCadastroFinal;
 	}
 }
