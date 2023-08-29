@@ -21,7 +21,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "produtos") 
 public class Produto {
-	
 	//Exemplo de como usar SEQUENCES
 	//https://www.devmedia.com.br/jpa-como-usar-a-anotacao-generatedvalue/38592
 	@Id

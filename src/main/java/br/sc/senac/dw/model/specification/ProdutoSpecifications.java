@@ -31,6 +31,8 @@ public class ProdutoSpecifications {
                 		+ seletor.getNome().toLowerCase() + "%"));
             }
             
+            //TODO como filtrar por "FABRICANTES.NOME"?
+            //https://stackoverflow.com/questions/6396877/openjpa-criteriabuilder-nested-object-property-fetch
             if (seletor.getFabricante() != null) {
                 predicates.add(cb.like(cb.lower(root.get("fabricante")), "%" 
                 		+ seletor.getFabricante().toLowerCase() + "%"));

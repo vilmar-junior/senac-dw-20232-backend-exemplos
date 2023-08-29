@@ -1,14 +1,14 @@
-INSERT INTO exemplos.fabricantes (nome)
-VALUES('Ouro');
+INSERT INTO exemplos.fabricantes (nome, cnpj)
+VALUES('Ouro', '11222333000022');
 
-INSERT INTO exemplos.fabricantes (nome)
-VALUES('Pelé');
+INSERT INTO exemplos.fabricantes (nome, cnpj)
+VALUES('Pelé', '10222333000022');
 
-INSERT INTO exemplos.fabricantes (nome)
-VALUES('Havaianas');
+INSERT INTO exemplos.fabricantes (nome, cnpj)
+VALUES('Havaianas', '55222333000022');
 
-INSERT INTO exemplos.fabricantes (nome)
-VALUES('Rider');
+INSERT INTO exemplos.fabricantes (nome, cnpj)
+VALUES('Rider', '88222333000022');
 
 INSERT INTO exemplos.produtos (nome, id_fabricante, valor, peso, data_cadastro)
 VALUES('Café', 1, 12.5, 0.5, sysdate());

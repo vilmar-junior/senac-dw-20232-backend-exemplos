@@ -3,6 +3,7 @@ package br.sc.senac.dw.model.entidade;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,11 +15,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "fabricantes")
 public class Fabricante {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
+	@JsonIgnore
+	private String cnpj;
 	
 	@JsonBackReference
     @OneToMany(mappedBy = "fabricante")
@@ -28,10 +31,11 @@ public class Fabricante {
 		super();
 	}
 
-	public Fabricante(Integer id, String nome, List<Produto> produtos) {
+	public Fabricante(Integer id, String nome, String cnpj, List<Produto> produtos) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cnpj = cnpj;
 		this.produtos = produtos;
 	}
 
@@ -63,6 +67,14 @@ public class Fabricante {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 	
 }
