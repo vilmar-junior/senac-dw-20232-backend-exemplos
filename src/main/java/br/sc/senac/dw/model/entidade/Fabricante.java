@@ -19,12 +19,10 @@ public class Fabricante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
-	@JsonIgnore
 	private String cnpj;
 	
 	@JsonBackReference
-    @OneToMany(mappedBy = "fabricante")
+    @OneToMany(mappedBy = "fabricanteDoProduto")
     private List<Produto> produtos;
 
     public Fabricante() {

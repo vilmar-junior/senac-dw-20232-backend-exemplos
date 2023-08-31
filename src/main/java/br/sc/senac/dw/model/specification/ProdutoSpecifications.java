@@ -27,6 +27,8 @@ public class ProdutoSpecifications {
             List<Predicate> predicates = new ArrayList<>();
 
             if (seletor.getNome() != null) {
+            	// WHERE/AND COLUNA OPERADOR VALOR
+            	// WHERE      nome   like    %Café%
                 predicates.add(cb.like(cb.lower(root.get("nome")), "%" 
                 		+ seletor.getNome().toLowerCase() + "%"));
             }
@@ -34,8 +36,11 @@ public class ProdutoSpecifications {
             //TODO como filtrar por "FABRICANTES.NOME"?
             //https://stackoverflow.com/questions/6396877/openjpa-criteriabuilder-nested-object-property-fetch
             if (seletor.getFabricante() != null) {
-                predicates.add(cb.like(cb.lower(root.get("fabricante")), "%" 
-                		+ seletor.getFabricante().toLowerCase() + "%"));
+            	//WHERE p.fabricante like '%Rider%'
+            	//WHERE f.nome like '%Rider%'
+            	//JPQL = Java Persistence Query Language
+                predicates.add(cb.like(root.join("fabricanteDoProduto").get("nome"), 
+                						"%" + seletor.getFabricante() + "%"));
             }
             
             if(seletor.getPesoMinimo() != null && seletor.getPesoMaximo() != null) {
@@ -55,6 +60,7 @@ public class ProdutoSpecifications {
 //            private Double valorMaximo;
 //            private LocalDate dataCadastroInicial;
 //            private LocalDate dataCadastroFinal;
+            //Por CNPJ
             
             return cb.and(predicates.toArray(new Predicate[0]));
         };
