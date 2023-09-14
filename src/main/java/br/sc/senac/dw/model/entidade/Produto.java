@@ -2,6 +2,7 @@ package br.sc.senac.dw.model.entidade;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Produto {
 	@ManyToOne
 	@JoinColumn(name = "id_fabricante")
 	private Fabricante fabricanteDoProduto;
+	
 	private Double valor;
 	private Double peso;
 	private LocalDate dataCadastro;

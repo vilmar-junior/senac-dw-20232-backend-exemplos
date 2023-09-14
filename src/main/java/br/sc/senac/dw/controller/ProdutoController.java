@@ -96,5 +96,15 @@ public class ProdutoController {
 	public boolean excluir(@PathVariable Integer id) {
 		return produtoService.excluir(id);
 	}
+	
+	/**
+	 * Método DELETE
+	 * Parâmetro id foi enviado via URL
+	 */
+	@DeleteMapping("/{cpf}")
+	public boolean excluirPorCpf(@PathVariable String cpf) {
+		return false;
+//		return produtoService.excluir(cpf);
+	}
 
 }

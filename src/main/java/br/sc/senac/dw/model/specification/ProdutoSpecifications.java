@@ -17,16 +17,20 @@ public class ProdutoSpecifications {
 	 * à entidade Produto.
 	 * 
      * query: O parâmetro query representa a consulta JPA que está sendo construída. 
-     * Ele é usado para adicionar cláusulas WHERE, JOIN, ORDER BY, entre outras, à consulta.
+     * Ele é usado para adicionar cláusulas WHERE, JOIN, ORDER BY, entre outras, 
+     * à consulta.
      * 
-     * cb (CriteriaBuilder): é uma interface que oferece métodos para construção de cláusulas de consulta de forma programática. Você usa métodos deste objeto para criar expressões de predicado, funções agregadas e outras partes da consulta.
+     * cb (CriteriaBuilder): é uma interface que oferece métodos para construção 
+     * de cláusulas de consulta de forma programática. 
+     * Você usa métodos deste objeto para criar expressões de predicado,
+     * funções agregadas e outras partes da consulta.
      * 
 	 * */
     public static Specification<Produto> comFiltros(ProdutoSeletor seletor) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 
-            if (seletor.getNome() != null) {
+            if (seletor.getNome() != null && !seletor.getNome().isEmpty()) {
             	// WHERE/AND COLUNA OPERADOR VALOR
             	// WHERE      nome   like    %Café%
                 predicates.add(cb.like(cb.lower(root.get("nome")), "%" 
@@ -35,12 +39,12 @@ public class ProdutoSpecifications {
             
             //TODO como filtrar por "FABRICANTES.NOME"?
             //https://stackoverflow.com/questions/6396877/openjpa-criteriabuilder-nested-object-property-fetch
-            if (seletor.getFabricante() != null) {
+            if (seletor.getNomeFabricante() != null  && !seletor.getNomeFabricante().isEmpty()) {
             	//WHERE p.fabricante like '%Rider%'
             	//WHERE f.nome like '%Rider%'
             	//JPQL = Java Persistence Query Language
                 predicates.add(cb.like(root.join("fabricanteDoProduto").get("nome"), 
-                						"%" + seletor.getFabricante() + "%"));
+                						"%" + seletor.getNomeFabricante() + "%"));
             }
             
             if(seletor.getPesoMinimo() != null && seletor.getPesoMaximo() != null) {
@@ -53,6 +57,14 @@ public class ProdutoSpecifications {
             } else if(seletor.getPesoMaximo() != null) {
             	//WHERE peso <= max
             	predicates.add(cb.lessThanOrEqualTo(root.get("peso"), seletor.getPesoMaximo()));
+            }
+            
+            if(seletor.getValorMinimo() != null && seletor.getValorMaximo() != null) {
+				//SQL: .... AND VALOR BETWEEN (VL_Min) AND (VL_Max)
+            	Predicate predicadoNovo = cb.between(root.get("valor"), 
+							            			 seletor.getValorMinimo(), 
+							            			 seletor.getValorMaximo());
+            	predicates.add(predicadoNovo);
             }
             
             // TODO Adicionar outros filtros aqui

@@ -5,7 +5,8 @@ import java.time.LocalDate;
 public class ProdutoSeletor extends BaseSeletor {
 
     private String nome;
-    private String fabricante;
+    private String nomeFabricante;
+    private String cnpjFabricante;
     private Double valorMinimo;
     private Double valorMaximo;
     private Double pesoMinimo;
@@ -21,12 +22,20 @@ public class ProdutoSeletor extends BaseSeletor {
 		this.nome = nome;
 	}
 
-	public String getFabricante() {
-		return fabricante;
+	public String getNomeFabricante() {
+		return nomeFabricante;
 	}
 
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
+	public void setNomeFabricante(String fabricante) {
+		this.nomeFabricante = fabricante;
+	}
+	
+	public String getCnpjFabricante() {
+		return cnpjFabricante;
+	}
+
+	public void setCnpjFabricante(String cnpjFabricante) {
+		this.cnpjFabricante = cnpjFabricante;
 	}
 
 	public Double getValorMinimo() {
