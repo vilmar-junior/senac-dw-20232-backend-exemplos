@@ -65,14 +65,18 @@ public class ProdutoSpecifications {
 							            			 seletor.getValorMinimo(), 
 							            			 seletor.getValorMaximo());
             	predicates.add(predicadoNovo);
-            }
+            	
+            }//TODO fazer casos só de peso mínimo ou peso máximo preenchidos
             
-            // TODO Adicionar outros filtros aqui
-//            private Double valorMinimo;
-//            private Double valorMaximo;
-//            private LocalDate dataCadastroInicial;
-//            private LocalDate dataCadastroFinal;
-            //Por CNPJ
+            if(seletor.getCnpjFabricante() != null 
+            		&& !seletor.getCnpjFabricante().isEmpty()) {
+            	/* select p.* from produtos p 
+				   inner join fabricantes f on p.id_fabricante = f.id  
+				   where f.cnpj = '88222333000022'
+            	 * */
+            	predicates.add(cb.equal(root.join("fabricanteDoProduto").get("cnpj"), 
+            					seletor.getCnpjFabricante()));
+            }
             
             return cb.and(predicates.toArray(new Predicate[0]));
         };
