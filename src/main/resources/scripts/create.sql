@@ -20,3 +20,9 @@ CREATE TABLE exemplos.produtos (
 	CONSTRAINT produtos_pk PRIMARY KEY (id),
 	CONSTRAINT id_fabricante foreign key (id_fabricante) references exemplos.fabricantes(ID)
 );
+
+-- Alterações da prova
+-- Criar as novas colunas em FABRICANTES
+alter table fabricantes add column cidade VARCHAR(255);
+alter table fabricantes add column cep VARCHAR(8);
+alter table fabricantes add column uf VARCHAR(2);

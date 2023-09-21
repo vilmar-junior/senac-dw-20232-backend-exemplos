@@ -1,24 +1,75 @@
 {
 	"info": {
-		"_postman_id": "bffaf5ce-1335-42b2-af59-d22ff9750a25",
+		"_postman_id": "ac13ffea-2967-41fb-a3be-39637138efb8",
 		"name": "Senac - DW",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5303656"
 	},
 	"item": [
+		{
+			"name": "[Fabricante] Inserir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"HP\",\r\n        \"cnpj\": \"11222333000196\",\r\n        \"cep\": \"88495000\",\r\n        \"cidade\": \"Garopaba\",\r\n        \"uf\": \"SC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fabricantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabricantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Fabricante] Listar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/fabricantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabricantes"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "[Produto] Listar todos",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/vacina",
+					"raw": "http://localhost:8080/api/produtos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8080",
 					"path": [
-						"vacina"
+						"api",
+						"produtos"
 					]
 				}
 			},
