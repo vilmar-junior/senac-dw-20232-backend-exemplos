@@ -1,5 +1,7 @@
 package br.sc.senac.dw.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class ProdutoController {
 	 * Método GET: geralmente utilizado em consultas
 	 * Parâmetros podem ser enviados via URL
 	 * 
-	 * @return a lista de todas os produtos
+	 * @return a lista de todos os produtos
 	 */
 	@GetMapping
 	public List<Produto> listarTodos() {
@@ -70,6 +72,8 @@ public class ProdutoController {
 	@PostMapping
 	public Produto salvar(@RequestBody Produto novoProduto) 
 			throws CampoInvalidoException {
+		novoProduto.setDataCadastro(LocalDate.now());
+		
 		return produtoService.inserir(novoProduto);
 	}
 	
