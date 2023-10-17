@@ -72,8 +72,7 @@ public class ProdutoController {
 	@PostMapping
 	public Produto salvar(@RequestBody Produto novoProduto) 
 			throws CampoInvalidoException {
-		novoProduto.setDataCadastro(LocalDate.now());
-		
+		//TODO validar campos obrigatórios
 		return produtoService.inserir(novoProduto);
 	}
 	
