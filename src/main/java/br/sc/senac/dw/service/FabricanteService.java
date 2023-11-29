@@ -28,6 +28,11 @@ public class FabricanteService {
 		validarCamposObrigatorios(novoFabricante);
 		return fabricanteRepository.save(novoFabricante);
 	}
+	
+	public Fabricante atualizar(Fabricante novoFabricante) throws CampoInvalidoException {
+		validarCamposObrigatorios(novoFabricante);
+		return fabricanteRepository.save(novoFabricante);
+	}
 
 	//Métodos auxiliares
 	private void validarCamposObrigatorios(Fabricante fabricante) throws CampoInvalidoException {
@@ -48,5 +53,14 @@ public class FabricanteService {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";
+	}
+
+	public Fabricante consultarPorId(long id) {
+		return fabricanteRepository.findById(id).get();
+	}
+
+	public boolean excluir(Integer id) {
+		this.fabricanteRepository.deleteById(id.longValue());
+		return true;
 	}
 }

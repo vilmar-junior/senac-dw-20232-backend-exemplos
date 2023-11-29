@@ -38,10 +38,10 @@ public class SecurityConfiguration {
 				//GET em produtos só acessíveis por ADMIN
 				//demais métodos permitidos para usuários autenticados (qualquer papel)
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()    //revisar futuramente
-						.requestMatchers(HttpMethod.POST, "/auth/register").permitAll() //revisar futuramente
-						.requestMatchers(HttpMethod.GET, "/produtos").hasRole(Papel.ADMIN.getNome())
-						.anyRequest().authenticated()
+						//.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()    //revisar futuramente
+						//.requestMatchers(HttpMethod.POST, "/auth/register").permitAll() //revisar futuramente
+						//.requestMatchers(HttpMethod.GET, "/produtos").hasRole(Papel.ADMIN.getNome())
+						.anyRequest().permitAll()
 				)
 				.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
 				.build();
