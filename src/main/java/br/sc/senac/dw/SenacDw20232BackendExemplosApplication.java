@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SenacDw20232BackendExemplosApplication {
 
+	//TESTE
 	public static void main(String[] args) {
 		SpringApplication.run(SenacDw20232BackendExemplosApplication.class, args);
 	}
